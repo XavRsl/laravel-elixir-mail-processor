@@ -1,0 +1,36 @@
+{
+  "name": "laravel-elixir-mail-processor",
+  "version": "1.0.0",
+  "description": "Take Foundation for emails 2 into Laravel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XavRsl/laravel-elixir-mail-processor.git"
+  },
+  "keywords": [
+    "laravel",
+    "elixir",
+    "email",
+    "foundation",
+    "inky"
+  ],
+  "author": "Xavier Roussel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/XavRsl/laravel-elixir-mail-processor/issues"
+  },
+  "homepage": "https://github.com/XavRsl/laravel-elixir-mail-processor#readme",
+  "dependencies": {
+    "fs": "0.0.2",
+    "gulp-htmlmin": "^2.0.0",
+    "gulp-inject-string": "^1.1.0",
+    "gulp-inline-css": "^3.1.0",
+    "gulp-prettify": "^0.4.0",
+    "inky": "^1.3.5",
+    "lazypipe": "^1.0.1",
+    "siphon-media-query": "^1.0.0"
+  }
+}
