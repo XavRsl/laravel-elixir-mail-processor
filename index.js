@@ -15,11 +15,13 @@ Elixir.extend('processEmails', function(options) {
 
     new Task('processEmails', function() {
         return gulp
-            .src('resources/emails/*.blade.php')
+            .src('resources/emails/**/*.blade.php')
             .pipe(inky())
             .pipe(prettify({ indent_size: 2 }))
             .pipe(injectString.replace('-&gt;', '->'))
             .pipe(injectString.replace('=&gt;', '=>'))
+            .pipe(injectString.replace('&quot;', '"'))
+            .pipe(injectString.replace('&apos;', '\''))
             .pipe(inliner('resources/assets/css/foundation.css'))
             .pipe(gulp.dest('resources/views/emails'));
     })
