@@ -166,4 +166,4 @@ Add an *emails* folder to your resources directory and create a file called *exa
 </container>
 ```
 
-Run gulp. A *example.blade.php* file is generated in your resources/views/emails directory !
+Run gulp. A *example.blade.php* file is generated in your resources/views/emails directory ! The code generated is very ugly, but that's what common email clients want ! To have an idea of what it will look like in the different most common mail clients, have a look at [the **Litmus** tests here](https://litmus.com/checklist/emails/public/eb690d2).
