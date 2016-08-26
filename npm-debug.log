@@ -1,0 +1,104 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@3.3.12
+3 info using node@v5.5.0
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/roussel/Code/laravel-elixir-mail-processor',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/roussel/.npm/laravel-elixir-mail-processor/1.0.1/package.tgz not in flight; packing
+9 info lifecycle laravel-elixir-mail-processor@1.0.1~prepublish: laravel-elixir-mail-processor@1.0.1
+10 silly lifecycle laravel-elixir-mail-processor@1.0.1~prepublish: no script for prepublish, continuing
+11 verbose tar pack [ '/Users/roussel/.npm/laravel-elixir-mail-processor/1.0.1/package.tgz',
+11 verbose tar pack   '/Users/roussel/Code/laravel-elixir-mail-processor' ]
+12 verbose tarball /Users/roussel/.npm/laravel-elixir-mail-processor/1.0.1/package.tgz
+13 verbose folder /Users/roussel/Code/laravel-elixir-mail-processor
+14 verbose addLocalTarball adding from inside cache /Users/roussel/.npm/laravel-elixir-mail-processor/1.0.1/package.tgz
+15 silly cache afterAdd laravel-elixir-mail-processor@1.0.1
+16 verbose afterAdd /Users/roussel/.npm/laravel-elixir-mail-processor/1.0.1/package/package.json not in flight; writing
+17 verbose afterAdd /Users/roussel/.npm/laravel-elixir-mail-processor/1.0.1/package/package.json written
+18 silly publish { name: 'laravel-elixir-mail-processor',
+18 silly publish   version: '1.0.1',
+18 silly publish   description: 'Take Foundation for emails 2 into Laravel',
+18 silly publish   main: 'index.js',
+18 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+18 silly publish   repository:
+18 silly publish    { type: 'git',
+18 silly publish      url: 'git+https://github.com/XavRsl/laravel-elixir-mail-processor.git' },
+18 silly publish   keywords: [ 'laravel', 'elixir', 'email', 'foundation', 'inky' ],
+18 silly publish   author: { name: 'Xavier Roussel' },
+18 silly publish   license: 'MIT',
+18 silly publish   bugs: { url: 'https://github.com/XavRsl/laravel-elixir-mail-processor/issues' },
+18 silly publish   homepage: 'https://github.com/XavRsl/laravel-elixir-mail-processor#readme',
+18 silly publish   dependencies:
+18 silly publish    { fs: '0.0.2',
+18 silly publish      'gulp-htmlmin': '^2.0.0',
+18 silly publish      'gulp-inject-string': '^1.1.0',
+18 silly publish      'gulp-inline-css': '^3.1.0',
+18 silly publish      'gulp-prettify': '^0.4.0',
+18 silly publish      inky: '^1.3.5',
+18 silly publish      lazypipe: '^1.0.1',
+18 silly publish      'siphon-media-query': '^1.0.0' },
+18 silly publish   readme: '# laravel-elixir-mail-processor\nTake Foundation for emails 2 into Laravel.\n\n## Inky\nThe main idea behind this package is to be able to use Inky in laravel\'s gulp process. You integrate simple Inky template markup in your blade file and it compiles down to a far more complex blade file full of tables and inline CSS in order to be compatible with most of the email clients.\n\nTurn simple Inky markup like this :\n```html\n<container>\n  <row>\n    <columns>This is a column.</columns>\n  </row>\n</container>\n```\n\nInto this :\n```html\n<table class="container">\n  <tbody>\n    <tr>\n      <td>\n        <table class="row">\n          <tbody>\n            <tr>\n              <th class="small-12 large-12 columns first last">\n                <table>\n                  <tr>\n                    <th>This is a column.</th>\n                    <th class="expander"></th>\n                  </tr>\n                </table>\n              </th>\n            </tr>\n          </tbody>\n        </table>\n      </td>\n    </tr>\n  </tbody>\n</table>\n```\n\n## Install\n```\nnpm install laravel-elixir-mail-processor --save-dev\n```\n\nAdd plugin to your *gulpfile.js*\n\n```javascript\nconst elixir = require(\'laravel-elixir\');\n\nrequire(\'laravel-elixir-vue\');\nrequire(\'laravel-elixir-mail-processor\');\n\n/*\n |--------------------------------------------------------------------------\n | Elixir Asset Management\n |--------------------------------------------------------------------------\n |\n | Elixir provides a clean, fluent API for defining some basic Gulp tasks\n | for your Laravel application. By default, we are compiling the Sass\n | file for our application, as well as publishing vendor resources.\n |\n */\n\nelixir(mix => {\n    mix.sass(\'app.scss\')\n       .webpack(\'app.js\')\n       .processEmails();\n});\n```\n\nAdd an *emails* folder to your resources directory and create a file called *example.blade.php* with the following content :\n\n```html\n<style type="text/css">\n  .header {\n    background: #8a8a8a;\n  }\n\n  .header .columns {\n    padding-bottom: 0;\n  }\n\n  .header p {\n    color: #fff;\n    padding-top: 15px;\n  }\n\n  .header .wrapper-inner {\n    padding: 20px;\n  }\n\n  .header .container {\n    background: transparent;\n  }\n\n  table.button.facebook table td {\n    background: #3B5998 !important;\n    border-color: #3B5998;\n  }\n\n  table.button.twitter table td {\n    background: #1daced !important;\n    border-color: #1daced;\n  }\n\n  table.button.google table td {\n    background: #DB4A39 !important;\n    border-color: #DB4A39;\n  }\n\n  .wrapper.secondary {\n    background: #f3f3f3;\n  }\n</style>\n\n\n\n<wrapper class="header">\n  <container>\n    <row class="collapse">\n      <columns small="6">\n        <img src="http://placehold.it/200x50/663399">\n      </columns>\n      <columns small="6">\n        <p class="text-right">BASIC</p>\n      </columns>\n    </row>\n  </container>\n</wrapper>\n\n<container>\n\n  <spacer size="16"></spacer>\n\n  <row>\n    <columns small="12">\n\n      <h1>Hi, Susan Calvin</h1>\n      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, iste, amet consequatur a veniam.</p>\n      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut optio nulla et, fugiat. Maiores accusantium nostrum asperiores provident, quam modi ex inventore dolores id aspernatur architecto odio minima perferendis, explicabo. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima quos quasi itaque beatae natus fugit provident delectus, magnam laudantium odio corrupti sit quam. Optio aut ut repudiandae velit distinctio asperiores?</p>\n      <callout class="primary">\n        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit repellendus natus, sint ea optio dignissimos asperiores inventore a molestiae dolorum placeat repellat excepturi mollitia ducimus unde doloremque ad, alias eos!</p>\n      </callout>\n    </columns>\n  </row>\n  <wrapper class="secondary">\n\n    <spacer size="16"></spacer>\n\n    <row>\n      <columns large="6">\n        <h5>Connect With Us:</h5>\n        <button class="facebook expand" href="http://zurb.com">Facebook</button>\n        <button class="twitter expand" href="http://zurb.com">Twitter</button>\n        <button class="google expand" href="http://zurb.com">Google+</button>\n      </columns>\n      <columns large="6">\n        <h5>Contact Info:</h5>\n        <p>Phone: 408-341-0600</p>\n        <p>Email: <a href="mailto:foundation@zurb.com">foundation@zurb.com</a></p>\n      </columns>\n    </row>\n  </wrapper>\n</container>\n```\n\nRun gulp. A *example.blade.php* file is generated in your resources/views/emails directory ! The code generated is very ugly, but that\'s what common email clients want ! To have an idea of what it will look like in the different most common mail clients, have a look at [the **Litmus** tests here](https://litmus.com/checklist/emails/public/eb690d2).\n',
+18 silly publish   readmeFilename: 'README.md',
+18 silly publish   gitHead: '899b0655534c175dbfcd6139850584401599dab8',
+18 silly publish   _id: 'laravel-elixir-mail-processor@1.0.1',
+18 silly publish   _shasum: 'b06aa41da1d2226973f70c97a0d5dde1777592fa',
+18 silly publish   _from: '.' }
+19 verbose getPublishConfig undefined
+20 silly mapToRegistry name laravel-elixir-mail-processor
+21 silly mapToRegistry using default registry
+22 silly mapToRegistry registry https://registry.npmjs.org/
+23 silly mapToRegistry uri https://registry.npmjs.org/laravel-elixir-mail-processor
+24 verbose publish registryBase https://registry.npmjs.org/
+25 silly publish uploading /Users/roussel/.npm/laravel-elixir-mail-processor/1.0.1/package.tgz
+26 verbose request uri https://registry.npmjs.org/laravel-elixir-mail-processor
+27 verbose request sending authorization for write operation
+28 info attempt registry request try #1 at 15:56:20
+29 verbose request using bearer token for auth
+30 verbose request id 340ac6587ff567a1
+31 http request PUT https://registry.npmjs.org/laravel-elixir-mail-processor
+32 http 403 https://registry.npmjs.org/laravel-elixir-mail-processor
+33 verbose headers { 'content-type': 'application/json',
+33 verbose headers   'cache-control': 'max-age=300',
+33 verbose headers   'content-length': '95',
+33 verbose headers   'accept-ranges': 'bytes',
+33 verbose headers   date: 'Fri, 26 Aug 2016 13:56:21 GMT',
+33 verbose headers   via: '1.1 varnish',
+33 verbose headers   connection: 'keep-alive',
+33 verbose headers   'x-served-by': 'cache-lcy1127-LCY',
+33 verbose headers   'x-cache': 'MISS',
+33 verbose headers   'x-cache-hits': '0',
+33 verbose headers   'x-timer': 'S1472219780.328685,VS0,VE987',
+33 verbose headers   vary: 'Accept-Encoding' }
+34 verbose request invalidating /Users/roussel/.npm/registry.npmjs.org/laravel-elixir-mail-processor on PUT
+35 error publish Failed PUT 403
+36 verbose stack Error: "You cannot publish over the previously published version 1.0.1." : laravel-elixir-mail-processor
+36 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:264:12)
+36 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:252:14)
+36 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:172:14)
+36 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:198:22)
+36 verbose stack     at emitTwo (events.js:100:13)
+36 verbose stack     at Request.emit (events.js:185:7)
+36 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1082:10)
+36 verbose stack     at emitOne (events.js:95:20)
+36 verbose stack     at Request.emit (events.js:182:7)
+36 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1009:12)
+37 verbose statusCode 403
+38 verbose pkgid laravel-elixir-mail-processor
+39 verbose cwd /Users/roussel/Code/laravel-elixir-mail-processor
+40 error Darwin 15.5.0
+41 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "publish"
+42 error node v5.5.0
+43 error npm  v3.3.12
+44 error code E403
+45 error "You cannot publish over the previously published version 1.0.1." : laravel-elixir-mail-processor
+46 error If you need help, you may report this error at:
+46 error     <https://github.com/npm/npm/issues>
+47 verbose exit [ 1, true ]
