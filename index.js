@@ -22,7 +22,7 @@ Elixir.extend('processEmails', function(options) {
             .pipe(injectString.replace('=&gt;', '=>'))
             .pipe(injectString.replace('&quot;', '"'))
             .pipe(injectString.replace('&apos;', '\''))
-            .pipe(inliner('resources/assets/css/foundation.css'))
+            .pipe(inliner('node_modules/laravel-elixir-mail-processor/foundation-emails.min.css'))
             .pipe(gulp.dest('resources/views/emails'));
     })
     .watch('./resources/emails/**');
