@@ -167,3 +167,15 @@ Add an *emails* folder to your resources directory and create a file called *exa
 ```
 
 Run gulp. A *example.blade.php* file is generated in your resources/views/emails directory ! The code generated is very ugly, but that's what common email clients want ! To have an idea of what it will look like in the different most common mail clients, have a look at [the **Litmus** tests here](https://litmus.com/checklist/emails/public/eb690d2).
+
+## Workflow
+A watcher is included in the package so you can simply run ```gulp watch``` and make your changes in your resources/emails directory. You can include blade syntax in your files, it should work. You can have sub-directories.
+
+## TODO
+This package is very young and far from perfect. I've been struggling for a long time to find an easy way to send complex emails whitout being bothered by email HTML crap. This is the closest I can get but a few things could be added/enhenced :
+- Add the possibility to add a CSS file to be compiled with
+- have better gulp output (summary, source, destination when using Laravel 5.3)
+- using this package with blade layouts is not ideal. I found ways to do it but it's a bit clunky. find a better way
+- find people to help !
+
+HAVE FUN !
