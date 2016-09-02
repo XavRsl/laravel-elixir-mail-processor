@@ -73,6 +73,16 @@ elixir(mix => {
 Add an *emails* folder to your resources directory and create a file called *example.blade.php* with the following content :
 
 ```html
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Title</title>
+    <!-- <style> -->
+</head>
+
+<body>
 <style type="text/css">
   .header {
     background: #8a8a8a;
@@ -164,6 +174,8 @@ Add an *emails* folder to your resources directory and create a file called *exa
     </row>
   </wrapper>
 </container>
+</body>
+</html>
 ```
 
 Run gulp. A *example.blade.php* file is generated in your resources/views/emails directory ! The code generated is very ugly, but that's what common email clients want ! To have an idea of what it will look like in the different most common mail clients, have a look at [the **Litmus** tests here](https://litmus.com/checklist/emails/public/eb690d2).
