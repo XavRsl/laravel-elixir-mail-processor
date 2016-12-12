@@ -5,7 +5,7 @@ var prettify = require('gulp-prettify');
 var fs = require('fs');
 var siphon = require('siphon-media-query');
 var lazypipe = require('lazypipe');
-var juice = require('premailer-gulp-juice');
+var inlineCss = require('gulp-inline-css');
 var htmlmin = require('gulp-htmlmin');
 var injectString = require('gulp-inject-string');
 
@@ -32,7 +32,7 @@ Elixir.extend('processEmails', function(options) {
 
         var pipe = lazypipe()
             .pipe(injectString.replace, '<!-- <style> -->', '<style>'+css+'</style>')
-            .pipe(juice(options.juice))
+            .pipe(inlineCss({ preserveMediaQueries: true }))
             .pipe(htmlmin, {
                 collapseWhitespace: true,
                 minifyCSS: true
