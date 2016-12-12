@@ -32,7 +32,7 @@ Elixir.extend('processEmails', function(options) {
 
         var pipe = lazypipe()
             .pipe(injectString.replace, '<!-- <style> -->', '<style>'+css+'</style>')
-            .pipe(inlineCss)
+            .pipe(inlineCss, { preserveMediaQueries: true })
             .pipe(htmlmin, {
                 collapseWhitespace: true,
                 minifyCSS: true
