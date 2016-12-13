@@ -1,6 +1,6 @@
 {
   "name": "laravel-elixir-mail-processor",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Take Foundation for emails 2 into Laravel",
   "main": "index.js",
   "scripts": {
